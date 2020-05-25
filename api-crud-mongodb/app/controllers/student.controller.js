@@ -8,14 +8,14 @@ module.exports = {
             gender: req.body.gender
         });
         student.save(function (err, result) {
-            if (err) res.status(500).json({ success: false, result: err });
+            if (err) return res.status(500).json({ success: false, result: err });
             res.status(200).json({ success: true, result: result })
         })
     },
 
     fetch: (req, res) => {
         studentModel.find(function (err, result) {
-            if (err) res.status(500).json({ success: false, result: err })
+            if (err) return res.status(500).json({ success: false, result: err })
             if (result) return res.status(200).json({ success: true, result: result })
             res.status(404).json({ success: false, result: 'no student found' })
         })
