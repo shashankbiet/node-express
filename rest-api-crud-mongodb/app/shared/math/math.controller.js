@@ -8,8 +8,8 @@ module.exports = mathController;
  * @return x + y
  */
 mathController.addition = (req, res) => {
-    let x = parseFloat(req.params.x),
-        y = parseFloat(req.params.y);
+    let x = parseFloat(req.params.firstNumber),
+        y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
         res.status(404).json({ success: false, result: 'bad request' });
     } else {
@@ -28,8 +28,8 @@ mathController.addition = (req, res) => {
  * @return x - y
  */
 mathController.subtraction = (req, res) => {
-    let x = parseFloat(req.params.x),
-        y = parseFloat(req.params.y);
+    let x = parseFloat(req.params.firstNumber),
+        y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
         res.status(404).json({ success: false, result: 'bad request' });
     } else {
@@ -48,8 +48,8 @@ mathController.subtraction = (req, res) => {
  * @return x * y
  */
 mathController.multiplication = (req, res) => {
-    let x = parseFloat(req.params.x),
-        y = parseFloat(req.params.y);
+    let x = parseFloat(req.params.firstNumber),
+        y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
         res.status(404).json({ success: false, result: 'bad request' });
     } else {
@@ -68,8 +68,8 @@ mathController.multiplication = (req, res) => {
  * @return x / y
  */
 mathController.division = (req, res) => {
-    let x = parseFloat(req.params.x),
-        y = parseFloat(req.params.y);
+    let x = parseFloat(req.params.firstNumber),
+        y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
         res.status(404).json({ success: false, result: 'bad request' });
     } else {
