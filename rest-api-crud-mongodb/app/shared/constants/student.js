@@ -1,3 +1,4 @@
 module.exports = {
-    'CollectionName': 'students'
+    'collectionName': 'students',
+    'genderTypes': ['male', 'female', 'other']
 }

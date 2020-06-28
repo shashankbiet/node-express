@@ -16,4 +16,4 @@ const studentSchema = new Schema({
     mobileNo: Number
 }, { versionKey: false });
 
-module.exports = mongoose.model(studentConstant.CollectionName, studentSchema);
+module.exports = mongoose.model(studentConstant.collectionName, studentSchema);
