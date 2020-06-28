@@ -4,8 +4,6 @@ class Student {
     gender;
     email;
     mobileNo;
-    createdDate;
-    isActive;
 }
 
 module.exports = Student;
