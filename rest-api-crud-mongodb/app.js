@@ -1,6 +1,6 @@
 const express = require('express');
-const db = require('./src/config/mongodb');
-const routes = require('./src/routes/route');
+const db = require('./config/mongodb');
+const routes = require('./config/route');
 require('dotenv').config();
 
 const app = express();

@@ -1,4 +1,4 @@
-const mathController = require('../controllers/math.controller');
+const mathController = require('./math.controller');
 const router = require('express').Router();
 
 router.get('/addition/:x/:y/', mathController.addition);
