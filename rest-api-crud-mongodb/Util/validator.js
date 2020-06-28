@@ -1,15 +1,4 @@
-const { body, param, validationResult } = require('express-validator')
-
-/**
- * Validation rules for addition, subtraction, multiplication, division
- * @return {Object} - Validation rules.
- */
-const validationRules = () => {
-    return [
-        param('firstNumber').isInt(),
-        param('secondNumber').isInt()
-    ]
-}
+const { validationResult } = require('express-validator')
 
 /**
  * Validate the rules defined.
@@ -29,7 +18,4 @@ const validate = (req, res, next) => {
     });
 }
 
-module.exports = {
-    validationRules,
-    validate,
-}
+module.exports = validate;
