@@ -1,7 +1,7 @@
 const mathController = require('./math.controller');
 const router = require('express').Router();
 const { validationRules } = require('./math.validator');
-const validate = require('./../../../Util/validator');
+const validate = require('./../../../util/validator');
 
 router.get(
     '/addition/:firstNumber/:secondNumber/',

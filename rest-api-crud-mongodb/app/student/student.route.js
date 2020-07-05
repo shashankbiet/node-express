@@ -1,7 +1,7 @@
 const studentController = require('./student.controller');
 const router = require('express').Router();
 const { studentValidationRules, idValidationRules } = require('../student/student.validator');
-const validate = require('../../Util/validator');
+const validate = require('../../util/validator');
 
 router.get(
     '/',
