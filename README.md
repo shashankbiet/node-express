@@ -57,7 +57,7 @@ To run tests, run the following command
 
 #### Get student by id
 ```http
-  GET /api/student/${id}
+  GET /api/student/${_id}
 ```
 
 #### Create student
@@ -76,7 +76,7 @@ To run tests, run the following command
 
 #### Update student by id
 ```http
-  PUT /api/student/${id}
+  PUT /api/student/${_id}
 ```
 ```bash
   {
@@ -90,5 +90,5 @@ To run tests, run the following command
 
 #### Delete student by id
 ```http
-  DELETE /api/student/${id}
+  DELETE /api/student/${_id}
 ```
