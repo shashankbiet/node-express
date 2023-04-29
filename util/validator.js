@@ -1,4 +1,5 @@
-const { validationResult } = require('express-validator')
+const { validationResult } = require("express-validator");
+const status = require("../app/shared/constants/status");
 
 /**
  * Validate the rules defined.
@@ -10,12 +11,11 @@ const validate = (req, res, next) => {
         return next();
     }
     const extractedErrors = [];
-    errors.array().map(err => extractedErrors.push({ [err.param]: err.msg }));
+    errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
 
-    return res.status(422).json({
-        success: false,
+    return res.status(status.badRequest.code).json({
         errors: extractedErrors,
     });
-}
+};
 
 module.exports = validate;

@@ -7,15 +7,20 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
-    "jest": "^26.0.1",
     "mongoose": "^5.9.16",
-    "nodemon": "^2.0.4"
+    "winston": "^3.8.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint ./"
   },
   "author": "shashank kesharwani",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  }
 }
