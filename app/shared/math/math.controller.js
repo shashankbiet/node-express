@@ -1,14 +1,11 @@
 const mathService = require('./math.service');
 const status = require("../constants/status");
+const logger = require("../../../config/logger");
 const mathController = {};
 module.exports = mathController;
 
-/**
- * Addion of two numbers
- * @param {x, y} 
- * @return x + y
- */
 mathController.addition = (req, res) => {
+    logger.info(`addition req.params: ${JSON.stringify(req.params)}`);
     let x = parseFloat(req.params.firstNumber),
         y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
@@ -23,12 +20,8 @@ mathController.addition = (req, res) => {
     }
 };
 
-/**
- * Subtraction of two numbers
- * @param {x, y} 
- * @return x - y
- */
 mathController.subtraction = (req, res) => {
+    logger.info(`subtraction req.params: ${JSON.stringify(req.params)}`);
     let x = parseFloat(req.params.firstNumber),
         y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
@@ -43,12 +36,8 @@ mathController.subtraction = (req, res) => {
     }
 };
 
-/**
- * Multiplication of two numbers
- * @param {x, y} 
- * @return x * y
- */
 mathController.multiplication = (req, res) => {
+    logger.info(`multiplication req.params: ${JSON.stringify(req.params)}`);
     let x = parseFloat(req.params.firstNumber),
         y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {
@@ -63,12 +52,8 @@ mathController.multiplication = (req, res) => {
     }
 };
 
-/**
- * Division of two numbers
- * @param {x, y} 
- * @return x / y
- */
 mathController.division = (req, res) => {
+    logger.info(`division req.params: ${JSON.stringify(req.params)}`);
     let x = parseFloat(req.params.firstNumber),
         y = parseFloat(req.params.secondNumber);
     if (isNaN(x) || isNaN(y)) {

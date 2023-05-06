@@ -1,8 +1,7 @@
 const status = require("../app/shared/constants/status");
-const ApiError = require("../error/ApiError");
+const ApiError = require("../app/shared/models/apiError");
 const logger = require("../config/logger");
 
-// eslint-disable-next-line
 let apiErrorHandler = (err, req, res, next) => {
     if (err instanceof ApiError) {
         logger.error({
@@ -11,8 +10,7 @@ let apiErrorHandler = (err, req, res, next) => {
         });
         return res.status(err.status).send();
     }
-
-    logger.error(err);
+    logger.error(JSON.stringify(err));
     return res.status(status.internalServerError.code).send();
 };
 

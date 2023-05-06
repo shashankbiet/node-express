@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
+const logger = require("./logger")
 require("dotenv").config();
-let dbUrl = process.env.MONGO_URL;
+let dbUrl = process.env.MONGODB_URL;
 
 module.exports = async () => {
     await mongoose
-        .connect(dbUrl, { useNewUrlParser: true })
-        // eslint-disable-next-line
-        .then(() => console.log("MongoDB connected"))
-        // eslint-disable-next-line
-        .catch((err) => console.log(err));
+        .connect(dbUrl)
+        .then(() => logger.info("MONGODB CONNECTED"))
+        .catch((err) => logger.error(JSON.stringify(err)));
 }

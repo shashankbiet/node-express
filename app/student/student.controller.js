@@ -1,16 +1,13 @@
 const studentService = require('./student.service');
 const status = require("../shared/constants/status");
-const GetApiError = require("../shared/models/GetApiError");
+const ApiError = require("../shared/models/apiError");
+const logger = require("../../config/logger");
 const studentController = {};
 module.exports = studentController;
 
-/**
- * Create student
- * @param {Object} obj - req, res, next obj
- * @return student promise
- */
 studentController.createStudent = async (req, res, next) => {
     try {
+        logger.info(`createStudent req.body: ${JSON.stringify(req.body)}`);
         if (!req.body) {
             return res.status(status.notFound.code).json({ success: false, result: status.notFound.message });
         } else {
@@ -22,17 +19,13 @@ studentController.createStudent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        next(GetApiError.internalServerError(err.message, err.stack));
+        next(ApiError.internalServerError(err.message, err.stack));
     }
 }
 
-/**
- * Get all student
- * @param {Object} obj - req, res, next obj
- * @return student promise
- */
 studentController.getAllStudent = async (req, res, next) => {
     try {
+        logger.info(`getAllStudent req`);
         let result = await studentService.getStudent();
         if (result) {
             res.status(status.ok.code).json({ success: true, result: result });
@@ -40,17 +33,13 @@ studentController.getAllStudent = async (req, res, next) => {
             return res.status(status.internalServerError.code).json({ success: false, result: status.internalServerError.message });
         }
     } catch (err) {
-        next(GetApiError.internalServerError(err.message, err.stack));
+        next(ApiError.internalServerError(err.message, err.stack));
     }
 }
 
-/**
- * Get student by Id
- * @param {Object} obj - req, res, next obj
- * @return student promise
- */
 studentController.getStudentById = async (req, res, next) => {
     try {
+        logger.info(`getStudentById req.params: ${JSON.stringify(req.params)}`);
         if (!req.params._id) {
             return res.status(status.notFound.code).json({ success: false, result: status.notFound.message });
         } else {
@@ -65,17 +54,13 @@ studentController.getStudentById = async (req, res, next) => {
             }
         }
     } catch (err) {
-        next(GetApiError.internalServerError(err.message, err.stack));
+        next(ApiError.internalServerError(err.message, err.stack));
     }
 }
 
-/**
- * Edit student
- * @param {Object} obj - req, res, next obj
- * @return student promise
- */
 studentController.editStudent = async (req, res, next) => {
     try {
+        logger.info(`editStudent req.params: ${JSON.stringify(req.params)}`);
         if (!req.body || !req.params._id) {
             return res.status(status.notFound.code).json({ success: false, result: status.notFound.message });
         } else {
@@ -87,17 +72,13 @@ studentController.editStudent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        next(GetApiError.internalServerError(err.message, err.stack));
+        next(ApiError.internalServerError(err.message, err.stack));
     }
 }
 
-/**
- * Delete student
- * @param {Object} obj - req, res, next obj
- * @return student promise
- */
 studentController.deleteStudent = async (req, res, next) => {
     try {
+        logger.info(`deleteStudent req.params: ${JSON.stringify(req.params)}`);
         if (!req.params._id) {
             return res.status(status.notFound.code).json({ success: false, result: status.notFound.message });
         } else {
@@ -109,6 +90,6 @@ studentController.deleteStudent = async (req, res, next) => {
             }
         }
     } catch (err) {
-        next(GetApiError.internalServerError(err.message, err.stack));
+        next(ApiError.internalServerError(err.message, err.stack));
     }
 }

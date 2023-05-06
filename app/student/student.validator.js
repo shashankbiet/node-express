@@ -1,10 +1,6 @@
 const { param, body } = require('express-validator');
 const studentConstants = require('../shared/constants/student');
 
-/**
- * Validation rules for student object
- * @return {Object} - Validation rules.
- */
 const studentValidationRules = () => {
     return [
         body('id').isInt(),
@@ -15,10 +11,6 @@ const studentValidationRules = () => {
     ]
 }
 
-/**
- * Validation rules for _id
- * @return {Object} - Validation rules.
- */
 const idValidationRules = () => {
     return [
         param('_id').isMongoId()

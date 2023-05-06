@@ -1,10 +1,7 @@
 const { validationResult } = require("express-validator");
 const status = require("../app/shared/constants/status");
+const logger = require("../config/logger");
 
-/**
- * Validate the rules defined.
- * @return {Object} - errors if any.
- */
 const validate = (req, res, next) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -12,7 +9,7 @@ const validate = (req, res, next) => {
     }
     const extractedErrors = [];
     errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
-
+    logger.error(`url: ${req.originalUrl}, error: ${JSON.stringify(extractedErrors)}`);
     return res.status(status.badRequest.code).json({
         errors: extractedErrors,
     });
