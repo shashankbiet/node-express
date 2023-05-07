@@ -1,9 +1,11 @@
-const express = require('express');
-const mongodb = require('./config/mongodb');
-const routes = require('./config/route');
-const apiErrorHandler = require("./middleware/apiErrorHandler");
-const notFoundHandler = require("./middleware/notFoundHandler");
-require('dotenv').config();
+const express = require("express");
+const mongodb = require("./config/mongodb");
+const routes = require("./config/route");
+const apiErrorHandler = require("./middleware/api-error-handler");
+const notFoundHandler = require("./middleware/not-found-handler");
+const addCorrelationId = require("./middleware/add-correlation-id");
+const requestLogging = require("./middleware/request-logging");
+require("dotenv").config();
 
 const app = express();
 
@@ -44,13 +46,19 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Add Correlation Id
+app.use(addCorrelationId);
+
+//Request Logging
+app.use(requestLogging);
+
 //Routes
 routes(app);
 
-//Not Found
-app.use(notFoundHandler);
-
 //Error Handling
 app.use(apiErrorHandler);
+
+//Not Found
+app.use(notFoundHandler);
 
 module.exports = app;

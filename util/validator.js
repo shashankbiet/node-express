@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const status = require("../app/shared/constants/status");
+const apiStatus = require("../app/shared/constants/api-status");
 const logger = require("../config/logger");
 
 const validate = (req, res, next) => {
@@ -9,8 +9,12 @@ const validate = (req, res, next) => {
     }
     const extractedErrors = [];
     errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
-    logger.error(`url: ${req.originalUrl}, error: ${JSON.stringify(extractedErrors)}`);
-    return res.status(status.badRequest.code).json({
+    logger.error(
+        `CorrelationId: ${req.correlationId}, error: ${JSON.stringify(
+            extractedErrors
+        )}`
+    );
+    return res.status(apiStatus.BAD_REQUEST.status).json({
         errors: extractedErrors,
     });
 };

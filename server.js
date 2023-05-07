@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require("./app");
 const logger = require("./config/logger");
 require("dotenv").config();
 

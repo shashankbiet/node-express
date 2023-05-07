@@ -1,8 +1,6 @@
-
 # nodejs-clean-architecture-api
 
 NodeJS API build on Clean Architecture using express framework and mongodb.
-
 
 ## Run in docker
 
@@ -38,7 +36,6 @@ Start the server
   npm run dev
 ```
 
-
 ## Running Tests
 
 To run tests, run the following command
@@ -47,23 +44,26 @@ To run tests, run the following command
   npm run test
 ```
 
-
 ## API Reference
 
 #### Get all students
+
 ```http
   GET /api/student
 ```
 
 #### Get student by id
+
 ```http
   GET /api/student/${_id}
 ```
 
 #### Create student
+
 ```http
   POST /api/student
 ```
+
 ```bash
   {
     "id": 101,
@@ -75,9 +75,11 @@ To run tests, run the following command
 ```
 
 #### Update student by id
+
 ```http
   PUT /api/student/${_id}
 ```
+
 ```bash
   {
     "id": 101,
@@ -89,6 +91,7 @@ To run tests, run the following command
 ```
 
 #### Delete student by id
+
 ```http
   DELETE /api/student/${_id}
 ```
