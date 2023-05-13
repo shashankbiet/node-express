@@ -7,7 +7,7 @@
     "testMatch": ["**/tests/**"]
   },
   "scripts": {
-    "test": "NODE_ENV=test MONGODB_URL=mongodb://localhost:27017/nodejs-testdb jest",
+    "test": "NODE_ENV=test MONGODB_URL=mongodb://localhost:27017/test jest",
     "start": "NODE_ENV=prod node server.js",
     "dev": "NODE_ENV=dev MONGODB_URL=mongodb://localhost:27017/dev nodemon server.js",
     "lint": "eslint ."

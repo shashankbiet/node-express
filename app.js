@@ -1,6 +1,6 @@
 const express = require("express");
 const mongodb = require("./config/mongodb");
-const routes = require("./config/route");
+const router = require("./config/router");
 const apiErrorHandler = require("./middleware/api-error-handler");
 const notFoundHandler = require("./middleware/not-found-handler");
 const addCorrelationId = require("./middleware/add-correlation-id");
@@ -53,7 +53,7 @@ app.use(addCorrelationId);
 app.use(requestLogging);
 
 //Routes
-routes(app);
+router(app);
 
 //Error Handling
 app.use(apiErrorHandler);
